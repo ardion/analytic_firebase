@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "335819024058",
+    "project_id": "analytic-app-4cd6b",
+    "storage_bucket": "analytic-app-4cd6b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:335819024058:android:1ce11153e8ae48ba554483",
+        "android_client_info": {
+          "package_name": "com.example.googleanalytic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "335819024058-kqhi8f4agm3siho2npr4h75ejac7fqvt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTuNxqN1IPxetoAEiSYqHolGU6Q7VtlPQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "335819024058-kqhi8f4agm3siho2npr4h75ejac7fqvt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
