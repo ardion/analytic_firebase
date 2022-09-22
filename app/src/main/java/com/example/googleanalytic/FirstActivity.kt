@@ -68,4 +68,12 @@ class FirstActivity : AppCompatActivity() {
             param(FirebaseAnalytics.Param.CONTENT_TYPE, "image")
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW) {
+            param(FirebaseAnalytics.Param.SCREEN_NAME, "First Page")
+            param(FirebaseAnalytics.Param.SCREEN_CLASS, "FirstActivity")
+        }
+    }
 }
