@@ -24,9 +24,18 @@ class ThirdActivity : AppCompatActivity() {
 
     private fun recordScreenView() {
         val screenName = "Third Page"
-        firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW) {
+        firebaseAnalytics.logEvent("record_screen") {
             param(FirebaseAnalytics.Param.SCREEN_NAME, screenName)
             param(FirebaseAnalytics.Param.SCREEN_CLASS, "ThirdActivity")
         }
+    }
+
+//    override fun onResume() {
+//        super.onResume()
+//        recordScreenView()
+//    }
+
+    fun coba(){
+        
     }
 }

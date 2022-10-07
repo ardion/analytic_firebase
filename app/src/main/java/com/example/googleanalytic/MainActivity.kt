@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
             recordCustomEvent("button 1")
             navigate()
         }
+        viewBinding.btn1.text=RemoteConfigUtils.getButtonText()
 
         viewBinding.btn2.setOnClickListener {
             recordCustomEvent("button 2")
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun recordScreenView() {
-        val screenName = "Second Page"
+        val screenName = "Second Pagedd"
 
         firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW) {
             param(FirebaseAnalytics.Param.SCREEN_NAME, screenName)
@@ -58,5 +59,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun navigate(){
         startActivity(Intent(this,ThirdActivity::class.java))
+    }
+
+    override fun onResume() {
+        super.onResume()
+        recordScreenView()
     }
 }

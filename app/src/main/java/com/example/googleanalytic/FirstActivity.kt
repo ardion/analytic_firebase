@@ -1,6 +1,7 @@
 package com.example.googleanalytic
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -22,17 +23,31 @@ class FirstActivity : AppCompatActivity() {
         setContentView(view)
 
         firebaseAnalytics = Firebase.analytics
-        firebaseAnalytics.setUserProperty("profession","programmer")
+
 
         recordScreenView()
         onClickListener()
+
+        viewBinding.btnNext.apply {
+            text=RemoteConfigUtils.getButtonText()
+            setBackgroundColor(Color.parseColor(RemoteConfigUtils.getButtonColor()))
+        }
+    }
+
+    private fun recordScreenView2() {
+        val screenName = "First Page"
+
+        firebaseAnalytics.logEvent("record_screen") {
+            param(FirebaseAnalytics.Param.SCREEN_NAME, "First Page3")
+            param(FirebaseAnalytics.Param.SCREEN_CLASS, "FirstActivity")
+        }
     }
 
     private fun recordScreenView() {
         val screenName = "First Page"
 
         firebaseAnalytics.logEvent("record_screen") {
-            param(FirebaseAnalytics.Param.SCREEN_NAME, "First Page")
+            param(FirebaseAnalytics.Param.SCREEN_NAME, "First Page5")
             param(FirebaseAnalytics.Param.SCREEN_CLASS, "FirstActivity")
         }
     }
@@ -40,6 +55,7 @@ class FirstActivity : AppCompatActivity() {
     private fun onClickListener() {
         with(viewBinding) {
             btnNext.setOnClickListener {
+                firebaseAnalytics.setUserProperty("profession","worker")
                 startActivity(Intent(this@FirstActivity, MainActivity::class.java))
             }
 
@@ -72,7 +88,7 @@ class FirstActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW) {
-            param(FirebaseAnalytics.Param.SCREEN_NAME, "First Page")
+            param("screen_name", "First Page3")
             param(FirebaseAnalytics.Param.SCREEN_CLASS, "FirstActivity")
         }
     }
