@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.example.googleanalytic.databinding.ActivityFirstBinding
 import com.example.googleanalytic.databinding.ActivityMainBinding
@@ -24,6 +25,8 @@ class FirstActivity : AppCompatActivity() {
 
         firebaseAnalytics = Firebase.analytics
 
+        val bundle = intent.extras
+        Log.d("FirstActivity", bundle?.get("type").toString())
 
         recordScreenView()
         onClickListener()
@@ -57,6 +60,10 @@ class FirstActivity : AppCompatActivity() {
             btnNext.setOnClickListener {
                 firebaseAnalytics.setUserProperty("profession","worker")
                 startActivity(Intent(this@FirstActivity, MainActivity::class.java))
+            }
+
+            btnNotif.setOnClickListener {
+                startActivity(Intent(this@FirstActivity, SetupNotificationActivity::class.java))
             }
 
             imageFirst.setOnClickListener {
